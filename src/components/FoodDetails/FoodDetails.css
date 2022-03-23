@@ -1,0 +1,31 @@
+.compo-title {
+    text-align: center;
+}
+.orderedFood-info {
+    margin-left: 16px;
+}
+.clear-order {
+    display: block;
+    width: 85%;
+    margin: auto;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #d56116;
+    color: #ffffff;
+    font-size: 16px;
+}
+.review-order {
+    display: block;
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #db892a;
+    color: #ffffff;
+    font-size: 16px;
+}

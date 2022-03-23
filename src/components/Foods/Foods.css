@@ -11,3 +11,9 @@
     margin-top: 100px;
     margin-bottom: 100px;
 }
+.food-details {
+    background-color: #ebb46e;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
