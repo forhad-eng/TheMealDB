@@ -1,0 +1,36 @@
+nav {
+    height: 80px;
+    background-color: #23180d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+}
+.title {
+    color: #ffa33c;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+}
+.navigation {
+    padding-right: 100px;
+}
+.navigation a {
+    margin-left: 30px;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 3px;
+}
+.navigation a:first-child {
+    background-color: #c52d2f;
+}
+.navigation a:hover {
+    background-color: #c52d2f;
+}
+.sbox {
+    width: 100px;
+    margin-left: 50px;
+    padding: 8px 8px;
+    border-radius: 5px;
+}
