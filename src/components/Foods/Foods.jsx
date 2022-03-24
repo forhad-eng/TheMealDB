@@ -31,13 +31,12 @@ const Foods = () => {
     }
     return (
         <div className="container">
-            <div className='food-pictures'>
-                <div className="foods-container">
-                    {foods.map(food => (
-                        <Food food={food} key={food.idMeal} orderHandler={orderHandler}></Food>
-                    ))}
-                </div>
+            <div className="foods-container">
+                {foods.map(food => (
+                    <Food food={food} key={food.idMeal} orderHandler={orderHandler}></Food>
+                ))}
             </div>
+
             <div className="food-details">
                 <FoodDetails quantity={quantity} region={region}></FoodDetails>
             </div>

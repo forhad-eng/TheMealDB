@@ -2,9 +2,6 @@
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
-.food-pictures {
-    background-color: #2d2013;
-}
 .foods-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -1,0 +1,43 @@
+.greet-container {
+    width: 85%;
+    margin: auto;
+}
+.greet {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 50px;
+}
+.greet p a {
+    color: #d57d1f;
+    text-decoration: none;
+}
+.greet button {
+    border: none;
+    cursor: pointer;
+    color: #2c2e2f;
+    background: #ffc439;
+    border-radius: 4px;
+    padding: 10px 20px;
+    display: flex;
+    margin: auto;
+}
+.greet button img {
+    width: 50px;
+    height: 15px;
+}
+.search-box hr:last-child {
+    margin-bottom: 15px;
+}
+.search-box input {
+    width: 30%;
+    display: block;
+    margin: 20px auto;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+.search-box p {
+    text-align: center;
+    color: #ffffff;
+}
