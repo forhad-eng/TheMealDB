@@ -1,11 +1,11 @@
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Button } from 'react-bootstrap'
 import ModalFood from '../ModalFood/ModalFood'
-import { clearOrder } from '../utilities/fakedb'
 import './FoodDetails.css'
 
-const FoodDetails = ({ quantity, region, foods }) => {
+const FoodDetails = ({ quantity, region, foods, clearHandler }) => {
     return (
         <div className="food">
             <h2 className="compo-title">Food Details</h2>
@@ -16,9 +16,9 @@ const FoodDetails = ({ quantity, region, foods }) => {
                 <p>Tax: {quantity * 50 * 0.15}</p>
                 <p>Grand Total: {quantity * 50 + quantity * 50 * 0.1}</p>
             </div>
-            <button className="clear-order" onClick={clearOrder}>
+            <Button variant="danger" className="clear-order" onClick={clearHandler}>
                 Clear Order <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>{' '}
-            </button>
+            </Button>
             <ModalFood foods={foods}></ModalFood>
         </div>
     )

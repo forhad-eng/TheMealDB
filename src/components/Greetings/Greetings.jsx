@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 import mealIcon from '../images/meal-icon.png'
 import paypalSvg from '../images/paypal.svg'
 import './Greetings.css'
@@ -15,10 +16,10 @@ const Greetings = () => {
                         offer a <a href="https://www.themealdb.com/api.php">free JSON API</a> for anyone wanting to use
                         it, with additional features for subscribers.
                     </p>
-                    <button>
+                    <Button variant="warning" className="btn">
                         <img src={paypalSvg} alt="" />
                         <span>Subscribe</span>
-                    </button>
+                    </Button>
                     <p>Click to Support: Currently 650 supporters</p>
                 </div>
                 <img src={mealIcon} alt="" />

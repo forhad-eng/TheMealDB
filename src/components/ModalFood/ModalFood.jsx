@@ -32,18 +32,22 @@ const ModalFood = ({ foods }) => {
                     <Modal.Title>Review Order</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <table className="table text-center">
-                        <tr>
-                            <th>Food</th>
-                            <th>Id</th>
-                            <th>Quantity</th>
-                            <th>Status</th>
-                        </tr>
+                    {orderedFood.length > 0 && (
+                        <table className="table text-center">
+                            <tr>
+                                <th>Food</th>
+                                <th>Id</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                            </tr>
 
-                        {orderedFood.map(food => (
-                            <FoodTr food={food}></FoodTr>
-                        ))}
-                    </table>
+                            {orderedFood.map(food => (
+                                <FoodTr food={food}></FoodTr>
+                            ))}
+                        </table>
+                    )}
+
+                    {orderedFood.length === 0 && <h4 className="text-center">No Data!</h4>}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

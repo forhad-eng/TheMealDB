@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Food from '../Food/Food'
 import FoodDetails from '../FoodDetails/FoodDetails'
-import { getOrder, orderedFood } from '../utilities/fakedb'
+import { clearOrder, getOrder, orderedFood } from '../utilities/fakedb'
 import './Foods.css'
 
 const Foods = () => {
@@ -29,6 +29,11 @@ const Foods = () => {
         setRegion(food.strArea)
         orderedFood(food.idMeal)
     }
+
+    const clearHandler = () => {
+        setQuantity(0)
+        clearOrder()
+    }
     return (
         <div className="main-container">
             <div className="foods-container">
@@ -38,7 +43,12 @@ const Foods = () => {
             </div>
 
             <div className="food-details">
-                <FoodDetails quantity={quantity} region={region} foods={foods}></FoodDetails>
+                <FoodDetails
+                    quantity={quantity}
+                    region={region}
+                    foods={foods}
+                    clearHandler={clearHandler}
+                ></FoodDetails>
             </div>
         </div>
     )

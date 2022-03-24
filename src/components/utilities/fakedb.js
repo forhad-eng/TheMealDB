@@ -35,7 +35,6 @@ const removeOrder = foodID => {
 
 const clearOrder = () => {
     localStorage.removeItem('order-storage')
-    window.location.reload()
 }
 
 export { orderedFood, getOrderedFood as getOrder, clearOrder, removeOrder }

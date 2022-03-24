@@ -1,6 +1,7 @@
 import { faMousePointer } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Button } from 'react-bootstrap'
 import './Food.css'
 
 const Food = ({ food, orderHandler }) => {
@@ -14,11 +15,11 @@ const Food = ({ food, orderHandler }) => {
                 <p className="food-area">{strArea} Cuisine</p>
                 <p className="food-des">{strInstructions.slice(0, 45)}</p>
             </div>
-            <button className="order" onClick={() => orderHandler(food)}>
+            <Button className="order" variant="dark" onClick={() => orderHandler(food)}>
                 <p className="order-text">
                     Order Now <FontAwesomeIcon icon={faMousePointer}></FontAwesomeIcon>
                 </p>
-            </button>
+            </Button>
         </div>
     )
 }
