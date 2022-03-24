@@ -10,7 +10,7 @@ const FoodDetails = ({ quantity, region }) => {
             <h2 className="compo-title">Food Details</h2>
             <div className="orderedFood-info">
                 <p>Ordered Food: {quantity}</p>
-                <p>Region: {region}</p>
+                <p>{region} Cuisine</p>
                 <p>Price: {quantity * 50}</p>
                 <p>Tax: {quantity * 50 * 0.15}</p>
                 <p>Grand Total: {quantity * 50 + quantity * 50 * 0.1}</p>

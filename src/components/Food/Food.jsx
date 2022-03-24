@@ -4,14 +4,14 @@ import React from 'react'
 import './Food.css'
 
 const Food = ({ food, orderHandler }) => {
-    const { strMeal, strMealThumb, strCategory, strArea, strInstructions } = food
+    const { strMeal, strMealThumb, strArea, strInstructions } = food
     return (
         <div className="food-container">
             <img src={strMealThumb} alt="" />
             <div className="food-info">
                 <p className="food-name">{strMeal}</p>
-                <p className="food-category">Category: {strCategory}</p>
-                <p className="food-area">{strArea} Cusine</p>
+                <p className="food-category">Price: 50 BDT</p>
+                <p className="food-area">{strArea} Cuisine</p>
                 <p className="food-des">{strInstructions.slice(0, 45)}</p>
             </div>
             <button className="order" onClick={() => orderHandler(food)}>

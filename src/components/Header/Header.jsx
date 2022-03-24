@@ -11,7 +11,7 @@ const Header = () => {
                 <a href="/home">Home</a>
                 <a href="/products">Products</a>
                 <a href="/about">About</a>
-                <input className="sbox" type="text" placeholder="Search" />
+                <input className="sbox" placeholder="Search" />
             </div>
         </nav>
     )

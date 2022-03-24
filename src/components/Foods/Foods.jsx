@@ -8,6 +8,7 @@ const Foods = () => {
     const [foods, setFoods] = useState([])
     const [quantity, setQuantity] = useState(0)
     const [region, setRegion] = useState('')
+
     useEffect(() => {
         fetch('https://themealdb.com/api/json/v1/1/search.php?f=a')
             .then(res => res.json())
@@ -30,10 +31,12 @@ const Foods = () => {
     }
     return (
         <div className="container">
-            <div className="foods-container">
-                {foods.map(food => (
-                    <Food food={food} key={food.idMeal} orderHandler={orderHandler}></Food>
-                ))}
+            <div className='food-pictures'>
+                <div className="foods-container">
+                    {foods.map(food => (
+                        <Food food={food} key={food.idMeal} orderHandler={orderHandler}></Food>
+                    ))}
+                </div>
             </div>
             <div className="food-details">
                 <FoodDetails quantity={quantity} region={region}></FoodDetails>
