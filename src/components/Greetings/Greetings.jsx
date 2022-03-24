@@ -9,7 +9,7 @@ const Greetings = () => {
             <div className="greet">
                 <img src={mealIcon} alt="" />
                 <div>
-                    <h1>Welcome to TheMealDB</h1>
+                    <h1 className="fw-bold">Welcome to TheMealDB</h1>
                     <p>
                         Welcome to TheMealDB: An open, crowd-sourced database of Recipes from around the world. We also
                         offer a <a href="https://www.themealdb.com/api.php">free JSON API</a> for anyone wanting to use

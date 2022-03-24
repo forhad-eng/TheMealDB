@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import Foods from './components/Foods/Foods'
 import Greetings from './components/Greetings/Greetings'

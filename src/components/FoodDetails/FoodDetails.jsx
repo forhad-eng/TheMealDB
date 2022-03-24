@@ -1,10 +1,11 @@
-import { faArrowRight, faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import ModalFood from '../ModalFood/ModalFood'
 import { clearOrder } from '../utilities/fakedb'
 import './FoodDetails.css'
 
-const FoodDetails = ({ quantity, region }) => {
+const FoodDetails = ({ quantity, region, foods }) => {
     return (
         <div className="food">
             <h2 className="compo-title">Food Details</h2>
@@ -18,9 +19,7 @@ const FoodDetails = ({ quantity, region }) => {
             <button className="clear-order" onClick={clearOrder}>
                 Clear Order <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>{' '}
             </button>
-            <button className="review-order">
-                Review Order <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>{' '}
-            </button>
+            <ModalFood foods={foods}></ModalFood>
         </div>
     )
 }

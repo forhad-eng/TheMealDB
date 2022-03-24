@@ -30,7 +30,7 @@ const Foods = () => {
         orderedFood(food.idMeal)
     }
     return (
-        <div className="container">
+        <div className="main-container">
             <div className="foods-container">
                 {foods.map(food => (
                     <Food food={food} key={food.idMeal} orderHandler={orderHandler}></Food>
@@ -38,7 +38,7 @@ const Foods = () => {
             </div>
 
             <div className="food-details">
-                <FoodDetails quantity={quantity} region={region}></FoodDetails>
+                <FoodDetails quantity={quantity} region={region} foods={foods}></FoodDetails>
             </div>
         </div>
     )

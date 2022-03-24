@@ -19,13 +19,15 @@
     color: #2c2e2f;
     background: #ffc439;
     border-radius: 4px;
-    padding: 10px 20px;
-    display: flex;
-    margin: auto;
+    padding: 6px 18px;
 }
 .greet button img {
-    width: 50px;
-    height: 15px;
+    width: 53px;
+    height: 16px;
+}
+.search-box hr {
+    color: #ffffff;
+    opacity: 100%;
 }
 .search-box hr:last-child {
     margin-bottom: 15px;
