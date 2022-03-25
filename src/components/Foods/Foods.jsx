@@ -25,14 +25,33 @@ const Foods = () => {
     }, [])
 
     const orderHandler = food => {
-        setQuantity(quantity + 1)
+        // setQuantity(quantity + 1)
         setRegion(food.strArea)
         orderedFood(food.idMeal)
+        let totalOrder = 0
+        const order = getOrder()
+        for (const prop in order) {
+            totalOrder += order[prop]
+        }
+        setQuantity(totalOrder)
     }
 
     const clearHandler = () => {
         setQuantity(0)
         clearOrder()
+    }
+
+    const removeOrder = foodID => {
+        let storedFood = {}
+        const savedFood = localStorage.getItem('order-storage')
+        if (savedFood) {
+            storedFood = JSON.parse(savedFood)
+            if (foodID in storedFood) {
+                delete storedFood[foodID]
+                localStorage.setItem('order-storage', JSON.stringify(storedFood))
+            }
+        }
+        setQuantity(quantity - 1)
     }
     return (
         <div className="main-container">
@@ -48,6 +67,7 @@ const Foods = () => {
                     region={region}
                     foods={foods}
                     clearHandler={clearHandler}
+                    removeOrder={removeOrder}
                 ></FoodDetails>
             </div>
         </div>

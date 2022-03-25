@@ -2,9 +2,9 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
-import { getOrder, removeOrder } from '../utilities/fakedb'
+import { getOrder } from '../utilities/fakedb'
 
-const ModalFood = ({ foods }) => {
+const ModalFood = ({ foods, removeOrder }) => {
     const [orderedFood, setOrderedFood] = useState([])
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
@@ -42,7 +42,7 @@ const ModalFood = ({ foods }) => {
                             </tr>
 
                             {orderedFood.map(food => (
-                                <FoodTr food={food}></FoodTr>
+                                <FoodTr food={food} removeOrder={removeOrder}></FoodTr>
                             ))}
                         </table>
                     )}
@@ -62,7 +62,7 @@ const ModalFood = ({ foods }) => {
     )
 }
 
-const FoodTr = ({ food }) => {
+const FoodTr = ({ food, removeOrder }) => {
     return (
         <tr className="m-5">
             <td>
@@ -70,9 +70,9 @@ const FoodTr = ({ food }) => {
             </td>
             <td>{food.idMeal}</td>
             <td>1</td>
-            <button onClick={() => removeOrder(food.idMeal)} className="btn btn-danger mt-4">
+            <Button onClick={() => removeOrder(food.idMeal)} className="btn btn-danger mt-4">
                 Remove
-            </button>
+            </Button>
         </tr>
     )
 }

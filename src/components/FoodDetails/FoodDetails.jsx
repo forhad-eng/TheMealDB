@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap'
 import ModalFood from '../ModalFood/ModalFood'
 import './FoodDetails.css'
 
-const FoodDetails = ({ quantity, region, foods, clearHandler }) => {
+const FoodDetails = ({ quantity, region, foods, clearHandler, removeOrder }) => {
     return (
         <div className="food">
             <h2 className="compo-title">Food Details</h2>
@@ -19,7 +19,7 @@ const FoodDetails = ({ quantity, region, foods, clearHandler }) => {
             <Button variant="danger" className="clear-order" onClick={clearHandler}>
                 Clear Order <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>{' '}
             </Button>
-            <ModalFood foods={foods}></ModalFood>
+            <ModalFood foods={foods} removeOrder={removeOrder}></ModalFood>
         </div>
     )
 }
