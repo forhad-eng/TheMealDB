@@ -10,7 +10,7 @@ const Foods = () => {
     const [region, setRegion] = useState('')
 
     useEffect(() => {
-        fetch('https://themealdb.com/api/json/v1/1/search.php?f=a')
+        fetch('https://themealdb.com/api/json/v1/1/search.php?f=b')
             .then(res => res.json())
             .then(data => setFoods(data.meals))
     }, [])
@@ -42,17 +42,22 @@ const Foods = () => {
     }
 
     const removeOrder = foodID => {
-        let storedFood = {}
-        const savedFood = localStorage.getItem('order-storage')
-        if (savedFood) {
-            storedFood = JSON.parse(savedFood)
-            if (foodID in storedFood) {
-                delete storedFood[foodID]
-                localStorage.setItem('order-storage', JSON.stringify(storedFood))
+        const savedFood = getOrder()
+        let quantity = 0
+        if (foodID in savedFood) {
+            delete savedFood[foodID]
+            localStorage.setItem('order-storage', JSON.stringify(savedFood))
+        }
+
+        for (const prop in savedFood) {
+            const item = foods.find(food => food.idMeal === prop)
+            if (item) {
+                quantity += savedFood[prop]
             }
         }
-        setQuantity(quantity - 1)
+        setQuantity(quantity)
     }
+
     return (
         <div className="main-container">
             <div className="foods-container">

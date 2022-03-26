@@ -14,7 +14,7 @@ const FoodDetails = ({ quantity, region, foods, clearHandler, removeOrder }) => 
                 <p>{region} Cuisine</p>
                 <p>Price: {quantity * 50}</p>
                 <p>Tax: {quantity * 50 * 0.15}</p>
-                <p>Grand Total: {quantity * 50 + quantity * 50 * 0.1}</p>
+                <p>Grand Total: {quantity * 50 + quantity * 50 * 0.15}</p>
             </div>
             <Button variant="danger" className="clear-order" onClick={clearHandler}>
                 Clear Order <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>{' '}

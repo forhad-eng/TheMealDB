@@ -14,8 +14,9 @@ const ModalFood = ({ foods, removeOrder }) => {
         let order = []
         const getStoredData = getOrder()
         for (const prop in getStoredData) {
-            const item = foods.find(food => food.idMeal === prop)
+            let item = foods.find(food => food.idMeal === prop)
             if (item) {
+                item['quantity'] = getStoredData[prop]
                 order.push(item)
             }
         }
@@ -69,7 +70,7 @@ const FoodTr = ({ food, removeOrder }) => {
                 <img width={100} src={food.strMealThumb} alt="" />
             </td>
             <td>{food.idMeal}</td>
-            <td>1</td>
+            <td>{food.quantity}</td>
             <Button onClick={() => removeOrder(food.idMeal)} className="btn btn-danger mt-4">
                 Remove
             </Button>

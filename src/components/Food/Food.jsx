@@ -10,7 +10,7 @@ const Food = ({ food, orderHandler }) => {
         <div className="food-container">
             <img src={strMealThumb} alt="" />
             <div className="food-info">
-                <p className="food-name">{strMeal}</p>
+                <p className="food-name">{strMeal.slice(0, 30)}</p>
                 <p className="food-category">Price: 50 BDT</p>
                 <p className="food-area">{strArea} Cuisine</p>
                 <p className="food-des">{strInstructions.slice(0, 45)}</p>
