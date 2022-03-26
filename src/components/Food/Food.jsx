@@ -7,7 +7,7 @@ import './Food.css'
 const Food = ({ food, orderHandler }) => {
     const { strMeal, strMealThumb, strArea, strInstructions } = food
     return (
-        <div className="food-container">
+        <div data-aos="fade-down-right" className="food-container">
             <img src={strMealThumb} alt="" />
             <div className="food-info">
                 <p className="food-name">{strMeal.slice(0, 30)}</p>
