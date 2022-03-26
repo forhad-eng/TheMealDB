@@ -19,7 +19,7 @@ const FoodDetails = ({ quantity, region, foods, clearHandler, removeOrder }) => 
             <Button variant="danger" className="clear-order" onClick={clearHandler}>
                 Clear Order <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>{' '}
             </Button>
-            <ModalFood foods={foods} removeOrder={removeOrder}></ModalFood>
+            <ModalFood foods={foods} removeOrder={removeOrder} quantity={quantity}></ModalFood>
         </div>
     )
 }

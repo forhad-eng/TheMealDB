@@ -4,7 +4,7 @@ import mealIcon from '../images/meal-icon.png'
 import paypalSvg from '../images/paypal.svg'
 import './Greetings.css'
 
-const Greetings = () => {
+const Greetings = ({ setSrc }) => {
     return (
         <div className="greet-container">
             <div className="greet">
@@ -26,7 +26,7 @@ const Greetings = () => {
             </div>
             <div className="search-box">
                 <hr />
-                <input type="text" placeholder="Search for a meal 🔍" />
+                <input type="text" placeholder="Search for a meal 🔍" onChange={e => setSrc(e.target.value)} />
                 <p>
                     <b>🥯Total Meals:</b> 283<b> 🧄Total Ingredients:</b> 574 <b> 🍱 Images:</b> 283
                 </p>

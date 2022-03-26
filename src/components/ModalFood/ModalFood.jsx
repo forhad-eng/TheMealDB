@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import { getOrder } from '../utilities/fakedb'
 
-const ModalFood = ({ foods, removeOrder }) => {
+const ModalFood = ({ foods, removeOrder, quantity }) => {
     const [orderedFood, setOrderedFood] = useState([])
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
@@ -21,7 +21,7 @@ const ModalFood = ({ foods, removeOrder }) => {
             }
         }
         setOrderedFood(order)
-    }, [foods, orderedFood])
+    }, [foods, quantity])
     return (
         <>
             <Button className="review-order" onClick={handleShow}>

@@ -4,16 +4,16 @@ import FoodDetails from '../FoodDetails/FoodDetails'
 import { clearOrder, getOrder, orderedFood } from '../utilities/fakedb'
 import './Foods.css'
 
-const Foods = () => {
+const Foods = ({ src }) => {
     const [foods, setFoods] = useState([])
     const [quantity, setQuantity] = useState(0)
     const [region, setRegion] = useState('')
 
     useEffect(() => {
-        fetch('https://themealdb.com/api/json/v1/1/search.php?f=b')
+        fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${src}`)
             .then(res => res.json())
             .then(data => setFoods(data.meals))
-    }, [])
+    }, [src])
 
     useEffect(() => {
         let totalOrder = 0
@@ -25,7 +25,6 @@ const Foods = () => {
     }, [])
 
     const orderHandler = food => {
-        // setQuantity(quantity + 1)
         setRegion(food.strArea)
         orderedFood(food.idMeal)
         let totalOrder = 0
@@ -61,9 +60,7 @@ const Foods = () => {
     return (
         <div className="main-container">
             <div className="foods-container">
-                {foods.map(food => (
-                    <Food food={food} key={food.idMeal} orderHandler={orderHandler}></Food>
-                ))}
+                {foods && foods.map(food => <Food food={food} key={food.idMeal} orderHandler={orderHandler}></Food>)}
             </div>
 
             <div className="food-details">
