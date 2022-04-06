@@ -54,6 +54,7 @@ const Foods = ({ src }) => {
     }
 
     const clearHandler = () => {
+        setFoodCart([])
         clearOrder()
     }
 

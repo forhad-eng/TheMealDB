@@ -23,7 +23,7 @@ const ModalFood = ({ foodCart, removeOrder }) => {
                         <table className="table text-center">
                             <tr>
                                 <th>Food</th>
-                                <th>Id</th>
+                                <th>Name</th>
                                 <th>Quantity</th>
                                 <th>Status</th>
                             </tr>
@@ -49,13 +49,14 @@ const ModalFood = ({ foodCart, removeOrder }) => {
 }
 
 const FoodTr = ({ food, removeOrder }) => {
+    const { strMeal, strMealThumb, quantity } = food
     return (
         <tr className="m-5">
             <td>
-                <img width={100} src={food.strMealThumb} alt="" />
+                <img width={80} style={{ borderRadius: '50%' }} src={strMealThumb} alt="" />
             </td>
-            <td>{food.idMeal}</td>
-            <td>{food.quantity}</td>
+            <td>{strMeal}</td>
+            <td>{quantity}</td>
             <Button onClick={() => removeOrder(food)} className="btn btn-danger mt-4">
                 Remove
             </Button>
