@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Food from '../Food/Food'
 import FoodDetails from '../FoodDetails/FoodDetails'
-import { clearOrder, getOrder, orderedFood } from '../utilities/fakedb'
+import { clearOrder, getOrder, orderedFood, removeMeal } from '../utilities/fakedb'
 import './Foods.css'
 
 const Foods = ({ src }) => {
     const [foods, setFoods] = useState([])
-    const [quantity, setQuantity] = useState(0)
-    const [region, setRegion] = useState('')
+    const [foodCart, setFoodCart] = useState([])
+    console.log(foodCart)
 
     useEffect(() => {
         fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${src}`)
@@ -16,45 +16,45 @@ const Foods = ({ src }) => {
     }, [src])
 
     useEffect(() => {
-        let totalOrder = 0
-        const orderedFood = getOrder()
-        for (const prop in orderedFood) {
-            totalOrder += orderedFood[prop]
+        const storedFood = getOrder()
+        const newFood = []
+
+        for (const id in storedFood) {
+            fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    let food = data.meals[0]
+                    food.quantity = storedFood[id]
+                    newFood.push(food)
+                })
         }
-        setQuantity(totalOrder)
+        setFoodCart(newFood)
     }, [])
 
     const orderHandler = food => {
-        setRegion(food.strArea)
-        orderedFood(food.idMeal)
-        let totalOrder = 0
-        const order = getOrder()
-        for (const prop in order) {
-            totalOrder += order[prop]
+        let newFoods = []
+        const fd = foodCart.find(item => item.idMeal === food.idMeal)
+        if (fd) {
+            fd.quantity += 1
+            const rest = foodCart.filter(item => item.idMeal !== food.idMeal)
+            newFoods = [...rest, fd]
+        } else {
+            food.quantity = 1
+            const rest = foodCart.filter(item => item.idMeal !== food.idMeal)
+            newFoods = [...rest, food]
         }
-        setQuantity(totalOrder)
+        setFoodCart(newFoods)
+        orderedFood(food.idMeal)
+    }
+
+    const removeOrder = product => {
+        const rest = foodCart.filter(item => item.idMeal !== product.idMeal)
+        setFoodCart(rest)
+        removeMeal(product.idMeal)
     }
 
     const clearHandler = () => {
-        setQuantity(0)
         clearOrder()
-    }
-
-    const removeOrder = foodID => {
-        const savedFood = getOrder()
-        let quantity = 0
-        if (foodID in savedFood) {
-            delete savedFood[foodID]
-            localStorage.setItem('order-storage', JSON.stringify(savedFood))
-        }
-
-        for (const prop in savedFood) {
-            const item = foods.find(food => food.idMeal === prop)
-            if (item) {
-                quantity += savedFood[prop]
-            }
-        }
-        setQuantity(quantity)
     }
 
     return (
@@ -64,13 +64,7 @@ const Foods = ({ src }) => {
             </div>
 
             <div className="food-details">
-                <FoodDetails
-                    quantity={quantity}
-                    region={region}
-                    foods={foods}
-                    clearHandler={clearHandler}
-                    removeOrder={removeOrder}
-                ></FoodDetails>
+                <FoodDetails foodCart={foodCart} removeOrder={removeOrder} clearHandler={clearHandler}></FoodDetails>
             </div>
         </div>
     )

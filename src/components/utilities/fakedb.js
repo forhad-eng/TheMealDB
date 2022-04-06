@@ -21,7 +21,7 @@ const getOrderedFood = () => {
     return storedFood
 }
 
-const removeOrder = foodID => {
+const removeMeal = foodID => {
     let storedFood = {}
     const savedFood = localStorage.getItem('order-storage')
     if (savedFood) {
@@ -37,4 +37,4 @@ const clearOrder = () => {
     localStorage.removeItem('order-storage')
 }
 
-export { orderedFood, getOrderedFood as getOrder, clearOrder, removeOrder }
+export { orderedFood, getOrderedFood as getOrder, clearOrder, removeMeal }
