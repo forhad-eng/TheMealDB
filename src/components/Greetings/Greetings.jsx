@@ -12,9 +12,10 @@ const Greetings = ({ setSrc }) => {
                 <div>
                     <h1 className="fw-bold">Welcome to TheMealDB</h1>
                     <p>
-                        Welcome to TheMealDB: An open, crowd-sourced database of Recipes from around the world. We also
-                        offer a <a href="https://www.themealdb.com/api.php">free JSON API</a> for anyone wanting to use
-                        it, with additional features for subscribers.
+                        Search food, Order Food and Get Delivery within <span>30 minutes</span>. We are now almost every
+                        city in the country. And want you to know with joy that we have a good reputation in short-time
+                        delivery service comparison to others currently available. So, why are you waiting for? Order
+                        fast!!!
                     </p>
                     <Button variant="warning" className="btn">
                         <img src={paypalSvg} alt="" />

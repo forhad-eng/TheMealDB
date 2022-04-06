@@ -9,7 +9,7 @@
     color: #ffffff;
     margin-top: 50px;
 }
-.greet p a {
+.greet p span {
     color: #d57d1f;
     text-decoration: none;
 }
